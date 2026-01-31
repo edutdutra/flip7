@@ -1,17 +1,24 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { OpaqueColorValue, TouchableOpacity } from "react-native";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-interface IIconButtonProps {
+export interface IIconButtonProps {
   iconName: React.ComponentProps<typeof Ionicons>["name"];
+  onPress?: () => void;
+  color?: string | OpaqueColorValue;
   size?: number;
 }
 
-export function IconButton({ iconName, size = 24 }: IIconButtonProps) {
+export function IconButton({
+  iconName,
+  color,
+  size = 24,
+  onPress,
+}: IIconButtonProps) {
   return (
-    <TouchableOpacity>
-      <Ionicons name={iconName} size={size} />
+    <TouchableOpacity onPress={onPress}>
+      <Ionicons name={iconName} size={size} color={color} />
     </TouchableOpacity>
   );
 }
