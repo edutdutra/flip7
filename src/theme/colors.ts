@@ -8,4 +8,5 @@ export const COLORS = {
   tertiary: "#f9dd69",
 
   blue: "#007cff",
+  blue_dark: "#000000",
 };
