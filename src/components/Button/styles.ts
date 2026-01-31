@@ -1,4 +1,4 @@
-import { colors } from "@/theme/colors";
+import { COLORS } from "@/theme/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -6,10 +6,10 @@ export const styles = StyleSheet.create({
     padding: 12,
     width: "100%",
     borderRadius: 8,
-    backgroundColor: colors.primary,
+    backgroundColor: COLORS.primary,
   },
   text: {
-    color: colors.text,
+    color: COLORS.text,
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 18,

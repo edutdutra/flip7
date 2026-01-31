@@ -1,4 +1,4 @@
-import { colors } from "@/theme/colors";
+import { COLORS } from "@/theme/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -6,6 +6,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 24,
     paddingHorizontal: 16,
-    backgroundColor: colors.background,
+    backgroundColor: COLORS.background,
   },
 });
