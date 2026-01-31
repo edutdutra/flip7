@@ -24,6 +24,7 @@ export function Input({ placeholder, onSubmit, icon }: IInputProps) {
   return (
     <View style={styles.container}>
       <TextInput
+        autoFocus
         value={text}
         autoComplete="off"
         enterKeyHint="send"

@@ -3,13 +3,22 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
 interface IPlayerItemListProps {
+  onPress: (player: IPlayer) => void;
   position: number;
   data: IPlayer;
 }
 
-export function PlayerItemList({ position, data }: IPlayerItemListProps) {
+export function PlayerItemList({
+  position,
+  data,
+  onPress,
+}: IPlayerItemListProps) {
+  const handlePlayerOnPress = () => {
+    onPress(data);
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handlePlayerOnPress}>
       <View style={styles.content}>
         <Text style={styles.text}>{position}</Text>
         <Text style={styles.text}>{data.name}</Text>
