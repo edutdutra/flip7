@@ -14,9 +14,11 @@ export function Input({ placeholder, onSubmit, icon }: IInputProps) {
   const [text, setText] = useState("");
 
   const handleSubmit = () => {
-    onSubmit(text);
+    if (!!text.trim()) {
+      onSubmit(text);
 
-    setText("");
+      setText("");
+    }
   };
 
   return (
