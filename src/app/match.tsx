@@ -48,7 +48,7 @@ export default function Match() {
       />
 
       <PlayerBottomSheet
-        isOpen={!!selectedPlayer}
+        player={selectedPlayer}
         onClose={handleClosePlayerBottomSheet}
       />
     </Container>

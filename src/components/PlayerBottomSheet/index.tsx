@@ -1,29 +1,36 @@
-import { Modal, Text, View } from "react-native";
+import { Modal, View } from "react-native";
 
+import { CARDS } from "@/constants/cards";
+import { IPlayer } from "@/types/player";
+import { CardButton } from "../CardButton";
+import { PlayerBottomSheetHeader } from "../PlayerBottomSheetHeader";
 import { styles } from "./styles";
 
 interface IPlayerBottomSheetProps {
-  isOpen: boolean;
+  player: IPlayer | null;
   onClose: () => void;
 }
 
 export function PlayerBottomSheet({
-  isOpen,
+  player,
   onClose,
 }: IPlayerBottomSheetProps) {
   return (
     <Modal
       transparent
-      visible={isOpen}
+      visible={!!player}
       animationType="fade"
       onRequestClose={onClose}
     >
       <View style={styles.backdrop}>
         <View style={styles.sheet}>
-          <Text style={styles.title}>Opções</Text>
-          <Text>▶ Reproduzir</Text>
-          <Text>▶ Adicionar à fila</Text>
-          <Text>▶ Compartilhar</Text>
+          <PlayerBottomSheetHeader playerName={player!.name} />
+
+          <View style={styles.content}>
+            {CARDS.map((card) => (
+              <CardButton key={`${card.value}-${card.type}`} data={card} />
+            ))}
+          </View>
         </View>
       </View>
     </Modal>
