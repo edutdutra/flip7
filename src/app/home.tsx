@@ -1,12 +1,15 @@
 import { Button } from "@/components/Button";
-import { styles } from "@/screens/home";
-
-import { View } from "react-native";
+import { Container } from "@/components/Container";
+import { router } from "expo-router";
 
 export default function Home() {
+  const handleNewGame = () => {
+    router.push("/match");
+  };
+
   return (
-    <View style={styles.container}>
-      <Button text="Novo jogo" />
-    </View>
+    <Container>
+      <Button text="Novo jogo" onPress={handleNewGame} />
+    </Container>
   );
 }
