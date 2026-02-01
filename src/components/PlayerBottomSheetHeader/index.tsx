@@ -4,12 +4,14 @@ import { IconButton } from "../IconButton";
 import { styles } from "./styles";
 
 interface IPlayerBottomSheetHeaderProps {
+  points: number;
   playerName: string;
   onClose: () => void;
 }
 
 export function PlayerBottomSheetHeader({
   playerName,
+  points,
   onClose,
 }: IPlayerBottomSheetHeaderProps) {
   return (
@@ -20,8 +22,9 @@ export function PlayerBottomSheetHeader({
         size={32}
         onPress={onClose}
       />
-      <View>
+      <View style={styles.content}>
         <Text style={styles.text}>{playerName}</Text>
+        <Text style={styles.points}>+{points}</Text>
       </View>
       <IconButton
         iconName="checkmark-circle-sharp"
