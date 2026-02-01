@@ -6,13 +6,15 @@ import { styles } from "./styles";
 
 interface ICardButtonProps {
   data: ICard;
+  onPress: (card: ICard) => void;
 }
 
-export function CardButton({ data }: ICardButtonProps) {
+export function CardButton({ data, onPress }: ICardButtonProps) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleSelect = () => {
     setIsSelected(!isSelected);
+    onPress(data);
   };
 
   const getCardColor = (value: number) => {
