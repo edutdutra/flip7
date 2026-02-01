@@ -45,8 +45,9 @@ export function PlayerBottomSheet({
     onClose();
   };
 
-  const handleAddPointsToPlayer = (points: number) => {
+  const handleAddPointsToPlayer = () => {
     onAddPoints(player.id, points);
+    handleCloseBottomSheet();
   };
 
   const handleSumPoints = (card: ICard, action: "ADD" | "REMOVE") => {
@@ -69,9 +70,10 @@ export function PlayerBottomSheet({
       <View style={styles.backdrop}>
         <View style={styles.sheet}>
           <PlayerBottomSheetHeader
+            onConfirm={handleAddPointsToPlayer}
+            onClose={handleCloseBottomSheet}
             playerName={player.name}
             points={points}
-            onClose={handleCloseBottomSheet}
           />
 
           <View style={styles.content}>

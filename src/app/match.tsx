@@ -24,6 +24,25 @@ export default function Match() {
     setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
   };
 
+  const handleAddPoints = (playerId: string, points: number) => {
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player) => {
+        if (player.id === playerId) {
+          const updatedPoints = [...player.points, points];
+          const updatedTotalPoints = player.totalPoints + points;
+
+          return {
+            ...player,
+            points: updatedPoints,
+            totalPoints: updatedTotalPoints,
+          };
+        } else {
+          return player;
+        }
+      }),
+    );
+  };
+
   return (
     <Container>
       <Input
@@ -46,6 +65,7 @@ export default function Match() {
 
       <PlayerBottomSheet
         player={selectedPlayer}
+        onAddPoints={handleAddPoints}
         onClose={() => setSelectedPlayer(null)}
       />
     </Container>

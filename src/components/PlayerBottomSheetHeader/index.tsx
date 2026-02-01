@@ -7,20 +7,22 @@ interface IPlayerBottomSheetHeaderProps {
   points: number;
   playerName: string;
   onClose: () => void;
+  onConfirm: () => void;
 }
 
 export function PlayerBottomSheetHeader({
   playerName,
   points,
   onClose,
+  onConfirm,
 }: IPlayerBottomSheetHeaderProps) {
   return (
     <View style={styles.container}>
       <IconButton
         iconName="close-circle-sharp"
         color={COLORS.red}
-        size={32}
         onPress={onClose}
+        size={32}
       />
       <View style={styles.content}>
         <Text style={styles.text}>{playerName}</Text>
@@ -29,6 +31,7 @@ export function PlayerBottomSheetHeader({
       <IconButton
         iconName="checkmark-circle-sharp"
         color={COLORS.primary}
+        onPress={onConfirm}
         size={32}
       />
     </View>
