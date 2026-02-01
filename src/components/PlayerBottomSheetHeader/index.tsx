@@ -5,14 +5,21 @@ import { styles } from "./styles";
 
 interface IPlayerBottomSheetHeaderProps {
   playerName: string;
+  onClose: () => void;
 }
 
 export function PlayerBottomSheetHeader({
   playerName,
+  onClose,
 }: IPlayerBottomSheetHeaderProps) {
   return (
     <View style={styles.container}>
-      <IconButton iconName="close-circle-sharp" color={COLORS.red} size={32} />
+      <IconButton
+        iconName="close-circle-sharp"
+        color={COLORS.red}
+        size={32}
+        onPress={onClose}
+      />
       <View>
         <Text style={styles.text}>{playerName}</Text>
       </View>

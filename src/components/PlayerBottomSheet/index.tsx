@@ -15,6 +15,10 @@ export function PlayerBottomSheet({
   player,
   onClose,
 }: IPlayerBottomSheetProps) {
+  if (!player) {
+    return null;
+  }
+
   return (
     <Modal
       transparent
@@ -24,7 +28,7 @@ export function PlayerBottomSheet({
     >
       <View style={styles.backdrop}>
         <View style={styles.sheet}>
-          <PlayerBottomSheetHeader playerName={player!.name} />
+          <PlayerBottomSheetHeader playerName={player.name} onClose={onClose} />
 
           <View style={styles.content}>
             {CARDS.map((card) => (
