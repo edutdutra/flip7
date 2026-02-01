@@ -16,7 +16,8 @@ export const styles = StyleSheet.create({
     gap: 10,
   },
   sheet: {
-    paddingVertical: 40,
+    paddingTop: 20,
+    paddingBottom: 40,
     paddingHorizontal: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
