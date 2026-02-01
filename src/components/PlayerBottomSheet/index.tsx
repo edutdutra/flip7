@@ -40,6 +40,11 @@ export function PlayerBottomSheet({
     return null;
   }
 
+  const handleCloseBottomSheet = () => {
+    setCards([]);
+    onClose();
+  };
+
   const handleAddPointsToPlayer = (points: number) => {
     onAddPoints(player.id, points);
   };
@@ -59,14 +64,14 @@ export function PlayerBottomSheet({
       transparent
       visible={!!player}
       animationType="fade"
-      onRequestClose={onClose}
+      onRequestClose={handleCloseBottomSheet}
     >
       <View style={styles.backdrop}>
         <View style={styles.sheet}>
           <PlayerBottomSheetHeader
             playerName={player.name}
             points={points}
-            onClose={onClose}
+            onClose={handleCloseBottomSheet}
           />
 
           <View style={styles.content}>
