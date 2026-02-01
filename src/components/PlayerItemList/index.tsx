@@ -24,7 +24,7 @@ export function PlayerItemList({
         <Text style={styles.text}>{data.name}</Text>
       </View>
       <View>
-        <Text style={styles.points}>69</Text>
+        <Text style={styles.points}>{data.totalPoints}</Text>
       </View>
     </TouchableOpacity>
   );

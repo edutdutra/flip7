@@ -14,17 +14,14 @@ export default function Match() {
   const [selectedPlayer, setSelectedPlayer] = useState<IPlayer | null>(null);
 
   const handleAddPlayer = (name: string) => {
-    const newPlayer: IPlayer = { id: UUIDUtils.generate(), name };
+    const newPlayer: IPlayer = {
+      id: UUIDUtils.generate(),
+      name,
+      points: [],
+      totalPoints: 0,
+    };
 
     setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
-  };
-
-  const handleOpenPlayerBottomSheet = (player: IPlayer) => {
-    setSelectedPlayer(player);
-  };
-
-  const handleClosePlayerBottomSheet = () => {
-    setSelectedPlayer(null);
   };
 
   return (
@@ -42,14 +39,14 @@ export default function Match() {
           <PlayerItemList
             data={item}
             position={index + 1}
-            onPress={handleOpenPlayerBottomSheet}
+            onPress={(player) => setSelectedPlayer(player)}
           />
         )}
       />
 
       <PlayerBottomSheet
         player={selectedPlayer}
-        onClose={handleClosePlayerBottomSheet}
+        onClose={() => setSelectedPlayer(null)}
       />
     </Container>
   );
