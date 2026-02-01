@@ -6,15 +6,17 @@ import { styles } from "./styles";
 
 interface ICardButtonProps {
   data: ICard;
-  onPress: (card: ICard) => void;
+  onPress: (card: ICard, action: "ADD" | "REMOVE") => void;
 }
 
 export function CardButton({ data, onPress }: ICardButtonProps) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleSelect = () => {
+    const action = isSelected ? "REMOVE" : "ADD";
+
+    onPress(data, action);
     setIsSelected(!isSelected);
-    onPress(data);
   };
 
   const getCardColor = (value: number) => {
